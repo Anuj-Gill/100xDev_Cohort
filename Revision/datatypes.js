@@ -50,4 +50,14 @@ const readline = require('readline').createInterface({
 //     console.log("Perimeter: " + 2*(length + breadth));
 //     readline.close();
 //   })
-// })
+
+
+//Question 6
+
+nums = [1,2,3,4,5]
+let sum = 0;
+nums.forEach(n => {
+  sum += n
+});
+
+console.log(sum/nums.length)
