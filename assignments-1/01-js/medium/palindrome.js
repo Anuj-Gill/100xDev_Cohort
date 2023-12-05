@@ -4,7 +4,16 @@
 */
 
 function isPalindrome(str) {
+  newStr = str.toLowerCase().replace(/[^a-zA-Z]/g,'');
+  for(let i = 1; i < newStr.length / 2;i++){
+    if(newStr[i - 1] == newStr[newStr.length - i])
+      continue;
+    else
+      return false
+  }
   return true;
 }
+
+console.log(isPalindrome('Malayalam'));
 
 module.exports = isPalindrome;
