@@ -16,6 +16,55 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result = 0
+  }
+
+  add(x){
+    this.result += x;
+    
+  }
+
+  subtract(y){
+    this.result -= y;
+    
+  }
+
+  multiply(z){
+    this.result *= z;
+    
+  }
+
+  divide(a){
+    if (a === 0) {
+      throw new Error;
+    } else {
+      this.result /= a;
+    }
+  }
+
+  clear(){
+    this.result = 0;
+    
+  }
+
+  
+  calculate(exp){
+    exp = exp.replace(/\s+/g,'').trim();
+    if(/[a-zA-Z]/.test(exp)){
+      throw new Error("Character's other than number!!")
+    } else{
+      this.result = eval(exp)
+    }
+  }
+
+  getResult(){
+    return this.result
+  }
+
+}
+
+
 
 module.exports = Calculator;
