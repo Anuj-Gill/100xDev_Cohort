@@ -3,6 +3,18 @@
 */
 
 function wait(n) {
+    const p = new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve();
+        },n)
+    })
+    return p;
 }
+
+// const  test = wait(2000)
+// test.then(() => {
+//     console.log("inside then");
+// })
+
 
 module.exports = wait;
