@@ -43,7 +43,83 @@
   const bodyParser = require('body-parser');
   
   const app = express();
-  
+
+  let todoList = []
+
+function assignId(list){
+  for(let i = 0; i < todoList.length; i++){
+    let todoObj = todoList[i];
+    todoObj["id"] = i + 1;
+  }
+
+  return todoList;
+}
+
+const todoListId = assignId(todoList);
+todoList = todoListId;
+
   app.use(bodyParser.json());
+
+  app.get('/todos',(req,res) => {
+    const responseArray = [];
+    for (let i = 0; i < todoList.length; i++) {
+      const todoItem = todoList[i];
+      const todoString = `<b>Title</b>: ${todoItem.title}    <b>Description</b>: ${todoItem.descp}   <b>Completed</b>: ${todoItem.completed}`;
+      responseArray.push(todoString);
+    }
+    res.status(200).send(responseArray.join('<br>'));
+  })
+
+  app.get('/todos/:id',(req,res) => {
+    const param = req.params.id;
+    for(let i = 0; i < todoList.length; i++){
+      if(todoList[i]["id"] == param){
+        res.send(`<b>Title</b>: ${todoList[i]["title"]}    <b>Description</b>: ${todoList[i]["descp"]} <b>Completed</b>: ${todoList[i].completed}`)
+      } 
+    }
+    res.status(404).send("Task not found!")
+
+  })
+
+  app.post('/todos',(req,res) => {
+    const todoObj = req.body;
+    todoObj["id"] = 0;
+    todoList.push(todoObj);
+    const updatedTodoList = assignId(todoList)
+    res.status(201).send("Recieved the todo to be added")
+  })
+
+  app.put('/todos/:id',(req,res) => {
+    const items = ["title","descp","completed"];
+    const id = req.params.id;
+    const obj = todoList[id-1]
+    const objBody = req.body;
+    for(let i = 0; i < items.length; i++){
+      if(!objBody[items[i]]){
+        todoList[id-1][items[i]] = obj[items[i]];
+
+      } else{
+        todoList[id-1][items[i]] = objBody[items[i]]
+      }
+    }
+    const updatedTodoList = assignId(todoList);
+    // console.log(todoList);
+    res.send(`Task with id: ${id} has been updated!!`)
+
+  })
+
+  app.delete("/todos/:id",(req,res) => {
+    const id = req.params.id;
+    if(id <= todoList.length){
+      todoList.splice(id - 1,1);
+      // updatedTodoList = assignId(todoList);
+      res.send(`Task at ${id} has been deleted!!`)
+    }
+    else{
+      res.status(404).send("File not found!");
+    }
+  })
+
+  app.listen(3000)
   
   module.exports = app;
