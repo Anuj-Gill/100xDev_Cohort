@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+const zod = require("zod");
+
+const schema = zod.array(zod.number());
+const schema1 = zod.array(zod.string())
 
 function authUser(req,res,next) {  //This is a middleware
   const username = req.headers.username;
@@ -51,13 +55,26 @@ app.use(express.json()) //In this, we define a middleware, now whichever route i
 
 app.get("/",startTime,endTime,(req,res) => {
   // console.log(req.totalTime)
+  
   res.send(`The server took ${req.totalTime}ms to respond to the http request`)
 })
 
 app.get('/health-checkup',authUser,authKidney,(req,res) => {    //In this route, the middlewares are defined as callbacks
-  res.json({
-    msg: "kidney fine"
-  })
+  const kidneys = req.body.kidneys;
+  const response = schema.safeParse(kidneys)
+  res.send(
+    response)
 });
 
+//global catches middleware
+//This middleware is called whenever there is some error in any of the routes, that is why it is defined after all the routes are defined.
+app.use((err,req,res,next) => {
+  res.json("Oppsy, something went wrong from our side!!")
+})
+
 app.listen(3000)
+
+
+
+
+
