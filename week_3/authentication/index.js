@@ -38,7 +38,6 @@ function userExists(gusername, gpassword) {
   ALL_USERS.find(e => {
     if(e["username"] == gusername && e["password"] == gpassword){
       result = true;
-      return
     }
   })
   return result
@@ -47,7 +46,10 @@ function userExists(gusername, gpassword) {
 app.post("/signin", function (req, res) {
   const username = req.body.username;
   const password = req.body.password;
+  console.log(username)
+  console.log(password)
 
+  console.log(userExists(username, password))
   if (!userExists(username, password)) {
     return res.status(403).json({
       msg: "User doesnt exist in our in memory db",
@@ -66,7 +68,9 @@ app.get("/users", function (req, res) {
   const token = req.headers.authorization;
   try {
     const decoded = jwt.verify(token, jwtPassword);
+    console.log(decoded)
     const username = decoded.username;
+    console.log(username)
     // return a list of users other than this username
     res.json({
       users: ALL_USERS.filter(e => {
