@@ -51,7 +51,7 @@ function endTime(req,res,next){
   next();
 }
 
-app.use(express.json()) //In this, we define a middleware, now whichever route is called after this statement, this middleware will be called by-default for each route. The express.json() returns a fucntion(middleware(req,res,next))
+app.use(express.json()) //In this, we define a middleware, now whichever route is called after this statement, this middleware will be called by-default for each route. The express.json() returns a function(middleware(req,res,next))
 
 app.get("/",startTime,endTime,(req,res) => {
   // console.log(req.totalTime)
