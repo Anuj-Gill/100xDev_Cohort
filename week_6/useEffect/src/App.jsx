@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -28,6 +26,14 @@ function App() {
       const todosList = response.todos;
       setTodos(todosList)
     },2000)
+    // async function fetchData(){
+      
+    //   const req = await fetch("https://sum-server.100xdevs.com/todos");
+    //     const response = await req.json();
+    //     const todosList = response.todos;
+    //     setTodos(todosList)
+    // }
+    // fetchData()
   },[])
   
 
