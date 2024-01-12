@@ -8,7 +8,7 @@ function App() {
   const [number, setNumber] = useState(0)
   const [dark, setdark] = useState(false)
   // const doubleNumber = slowFunction(number);
-  const doubleNumber = useMemo(() => slowFunction(number),[number]); //Here we are memoizing the number state. When we click change theme normally without using useMemo, it give a short delay because everything re-renders and also the slow function runs again even if the value of number was not changed. BUt now we have memoized number, ie the slow function will only run when there is a change in the number state. useMemo stores the value of the given state variable.
+  const doubleNumber = useMemo(() => slowFunction(number),[number]); //Here we are memoizing the number state. When we click change theme normally without using useMemo, it give a short delay because everything re-renders and also the slow function runs again even if the value of number was not changed. BUt now we have memoized number, ie the slow function will only run when there is a change in the number state. useMemo stores the value of the given state variable. useCallback is used specifically for caching functions instead of caching values.
   //
   const themeStyles = useMemo(() => {
     return {

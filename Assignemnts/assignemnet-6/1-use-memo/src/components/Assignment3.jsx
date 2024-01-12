@@ -11,8 +11,12 @@ const Assignment3 = () => {
         // Add more items as needed
     ]);
 
-    // Your code starts here
-    const totalValue = 0;
+    // Your code starts her
+    const totalValue = useMemo(() => {
+        let sum = 0;
+        items.map((x) => sum += x.value);
+        return sum
+    },[items])
     // Your code ends here
     return (
         <div>
