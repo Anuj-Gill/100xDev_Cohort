@@ -1,6 +1,6 @@
 export const RevenueCard = ({title, orderCount, amount, first}) => {
   return(
-    <div  className={first ? "bg-sky-600 rounded-lg shadow-md p-3 text-white mx-6" : "bg-white rounded-lg shadow-md mx-6 p-3"}>
+    <div  className={first ? "bg-sky-600 rounded-lg shadow-md p-3 text-white mx-2" : "bg-white rounded-lg shadow-md mx-2 p-3"}>
       <div className="flex text-lg ml-3 mr-1 ">
         { title }
         <div>
