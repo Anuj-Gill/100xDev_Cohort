@@ -4,10 +4,12 @@ import './App.css'
 import { Navbar } from './components/Navbar'
 import { BelowNavbar } from './components/BelowNavbar'
 import { TransactionsHeader, TransactionsSearch, TransactionsTableHeader, TrasactionsDetails } from './components/Transactions'
+import { Sidebar } from './components/Sidebar'
 
 function App() {
   return (
-      <body className='pt-20 mb-100 bg-gray-50 pl-8'>
+      <body className='pt-20 mb-100 bg-gray-50 pl-60 '>
+      <Sidebar/>
       <Navbar />
       <BelowNavbar />
       <div className='mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
