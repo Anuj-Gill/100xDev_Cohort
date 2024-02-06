@@ -9,9 +9,9 @@ export const RevenueCard = ({title, orderCount, amount, first}) => {
 
           </div>
         </div>
-        <div className="flex justify-between m-2 items-center">
+        <div className="flex justify-between m-2 pt-1 pb-1 items-center">
           <div className="text-3xl font-medium tracking-wide ">
-            $ { amount }
+            ${ amount }
           </div>
           {orderCount ? <div className="flex">
             <div className="-mr-0.5 font-medium underline">
@@ -22,7 +22,7 @@ export const RevenueCard = ({title, orderCount, amount, first}) => {
           </div> : null }
         </div>
         {first ?
-        <div className="flex justify-around bg-sky-800 p-2 mt-4 -ml-3 -mr-3 -mb-5 rounded-md ">
+        <div className="flex justify-between bg-sky-800 pl-6 pt-2 pb-2 pr-7  mt-4 -ml-3 -mr-3 -mb-5 rounded-md ">
           <p>
           Next Payment Date:
           </p> 

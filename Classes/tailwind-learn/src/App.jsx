@@ -17,7 +17,7 @@ function App() {
         <RevenueCard title={"Amount Pending"} amount={"92,000.00"} orderCount={13}/>
         <RevenueCard title={"Amount Processed"} amount={"92,000.00"} />
       </div>
-      <div className='mr-12'>
+      <div className='mr-12 ml-2'>
         <TransactionsHeader payouts={22} refunds={30} />
         <div className='pl-3'>
         <TransactionsSearch />

@@ -1,34 +1,40 @@
+import storeLogo from "../assets/storeLogo.jpg";
+
 export const Sidebar = () => {
   return (
-    <div className="fixed bg-indigo-950 top-0 left-0 bottom-0 w-56 text-white flex flex-col justify-between">
-      <div className="flex justify-between items-center pr-4">
-        <div>
-          <img src="../assets/storeLogo.svg"></img>
+    <div className="fixed bg-blue-950 top-0 left-0 bottom-0 w-56 text-white flex flex-col justify-between">
+
+      <div >
+        <div className="flex justify-between items-center mt-3 pr-4 mb-6">
+          <div>
+            <img src={storeLogo} className="w-10 ml-5 rounded-md"></img>
+          </div>
+          <div className="flex-col -ml-8">
+            <div>Nishyan</div>
+            <div className="underline font-light text-gray-300">
+              Visit Store
+            </div>
+          </div>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={3}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </div>
         </div>
-        <div className="flex-col -ml-8">
-          <div>Nishyan</div>
-          <div className="underline font-light text-gray-300">Visit Store</div>
-        </div>
-        <div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={3}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m19.5 8.25-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </div>
-      </div>
 
 
-      <div className="flex flex-col gap-y-3.5 ml-6 ">
+      <div className="flex flex-col gap-y-3.5 ml-6 self-start">
         <div className="flex">
           <div>
             <svg
@@ -249,11 +255,30 @@ export const Sidebar = () => {
           <div className="text-sm font-light tracking-wider">Plugins</div>
         </div>
       </div>
+      </div>
 
-      <div>
-        <div></div>
+
+      <div className="flex items-center mb-4 p-1 ml-4 bg-gray-700 w-48 rounded-md">
+        <div className="p-1 mr-4 ml-2 bg-gray-600 rounded-md">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-7 h-7"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21 12a2.25 2.25 0 0 0-2.25-2.25H15a3 3 0 1 1-6 0H5.25A2.25 2.25 0 0 0 3 12m18 0v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 9m18 0V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v3"
+            />
+          </svg>
+        </div>
         <div>
-          <div>Available Credits</div>
+          <div className="text-sm font-light tracking-wider">
+            Available Credits
+          </div>
           <div>224.10</div>
         </div>
       </div>
