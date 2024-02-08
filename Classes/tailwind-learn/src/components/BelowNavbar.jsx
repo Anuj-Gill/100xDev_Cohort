@@ -1,7 +1,7 @@
 export const BelowNavbar = () => {
 
   return(
-    <div className="flex justify-between  p-4 mb-4 items-center">
+    <div className="flex justify-between  p-4 mb-4 items-center -ml-56 md:ml-0">
       <div className="text-xl -ml-1">
         Overview
       </div>

@@ -2,7 +2,7 @@ import storeLogo from "../assets/storeLogo.jpg";
 
 export const Sidebar = () => {
   return (
-    <div className="fixed bg-blue-950 top-0 left-0 bottom-0 w-56 text-white flex flex-col justify-between">
+    <div className="absolute bg-blue-950 top-0 left-0 bottom-0 text-white flex flex-col justify-between -translate-x-56 md:translate-x-0 w-56 duration-300 ease-in-out z-20 delay-75">
 
       <div >
         <div className="flex justify-between items-center mt-3 pr-4 mb-6">

@@ -1,10 +1,27 @@
+import { useState } from "react"
+
+
 
 export const Navbar = () => {
+  const [clicked,setClicked] = useState(false)
+
+  // function handleButton() {
+  //   console.log(clicked)
+  //   setClicked(!clicked);
+  //   alert('hello world')
+  //   return(
+  //     <>
+  //       <div>Hello world</div>
+  //     </>
+  //   )
+  // }
+  
+
   return(
-    <div className="flex border-2 border-gray-200 fixed top-0 left-56 right-0 h-16 justify-between items-center bg-white">
+    <div className="flex border-2 border-gray-200  fixed top-0 left-56 right-0 h-16 justify-between items-center bg-white -ml-56 md:ml-0">
       <div className="flex w-64 -mr-36 ml-4 items-center ">
-        <div className="mr-3 cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 font-extrabold ">
+        <div className="mr-3 cursor-pointer visible md:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg"   onClick={() => handleButton()} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 font-extrabold ">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </div>
