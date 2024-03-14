@@ -21,7 +21,6 @@ export const todoLength = selector({
     get: ({get}) => {
         const todoList = get(todoAtom);
         console.log(todoList.length != 0)
-        return (todoList.length != 0);
+        return (todoList.length == 0);
     }
-
 })
