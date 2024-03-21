@@ -9,7 +9,6 @@ export function TodosTable() {
     const filteredTodos = useRecoilValue(filteredTodoSelector);
     const isFilteredTodoEmpty = useRecoilValue(filteredTodoLength);
     const isTodoEmpty = useRecoilValue(todoLength)
-    console.log(isTodoEmpty);
     console.log(isFilteredTodoEmpty);
     console.log(todos)
     console.log(filteredTodos)

@@ -9,7 +9,7 @@ export function SearchForm() {
     return(
         <div>
             <form>
-                <input type="text" name="" id="" onChange={(e) => (setSearchTerm(e.target.value))} />
+                <input type="text" placeholder="Search" onChange={(e) => (setSearchTerm(e.target.value))} />
             </form>
         </div>
     )

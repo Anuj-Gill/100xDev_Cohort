@@ -1,7 +1,7 @@
 import { todoAtom } from "../store/atoms/todos";
 import { titleAtom } from "../store/atoms/todos";
 import { descriptionAtom } from "../store/atoms/todos";
-import {useRecoilState, RecoilRoot} from 'recoil';
+import {useRecoilState, useSetRecoilState,RecoilRoot} from 'recoil';
 
 export function TodoForm() {
     const [todos, setTodos] = useRecoilState(todoAtom);
@@ -12,8 +12,6 @@ export function TodoForm() {
         e.preventDefault();
         setTodos([...todos, {title : title,  description: description}]);
     }
-    console.log(title, description, todos);
-
 
     return(
         <div>
