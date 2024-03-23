@@ -1,51 +1,37 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react';
 
-function useTodos(n) {
+function useDebounce(value, time) {
+   const [debounced, setDebounced] = useState(value);
 
-  const [todos, setTodos] = useState([]);
-  const [loading, setLoading] = useState(true)
-  
-  useEffect(() => {
-    const value = setInterval(() => {
-      axios.get("https://sum-server.100xdevs.com/todos")
-        .then(res => {
-          setTodos(res.data.todos);
-          setLoading(false)
-        })
-    }, n*1000);
+   useEffect(() => {
+    const dbTimeout = setTimeout(() => {
+      setDebounced(value)
+    }, time);
 
     return(() => {
-      clearInterval(value)
+      clearTimeout(dbTimeout);
     })
-  }, [n])
+   },[value]);
 
-
-
-  return { todos, loading };
+   return debounced
 }
 
-function App() {
+const SearchBar = () => {
+  const [inputValue, setInputValue] = useState('');
+  const debouncedValue = useDebounce(inputValue, 500); // 500 milliseconds debounce delay
 
-  const { todos, loading } = useTodos(5);
-  console.log(loading)
-
+  
   return (
-    <>
-      {loading ? <div>Loading...</div> : <div>
-        {todos.map(todo => <Track todo={todo} />)}
-      </div>}
-      { }
-    </>
-  )
-}
+    <div>
+      <div>Debounced value is {debouncedValue}</div>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Search..."
+      />
+    </div>
+  );
+};
 
-function Track({ todo }) {
-  return <div>
-    {todo.title}
-    <br />
-    {todo.description}
-  </div>
-}
-
-export default App
+export default SearchBar;
